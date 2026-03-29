@@ -138,7 +138,7 @@ Prompts:
 
 I learned how recommender systems balance multiple features to rank items. It was interesting to see how small changes in scoring weights dramatically affect rankings. Testing different user profiles helped me understand potential biases, like high-energy songs dominating, and showed how important dataset diversity is.
 
-## Personal refection from course portal questions
+## Personal reflection from course portal questions
 
 What was your biggest learning moment during this project?
 How did using AI tools help you, and when did you need to double-check them?
