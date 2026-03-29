@@ -32,32 +32,32 @@ Some prompts to answer:
   - For example: genre, mood, energy, tempo
 
 Each song includes:
-- genre
-- mood
-- energy
-- tempo_bpm
-- valence
-- danceability
-- acousticness
+    - genre
+    - mood
+    - energy
+    - tempo_bpm
+    - valence
+    - danceability
+    - acousticness
 
 - What information does your `UserProfile` store
 
 The user profile includes:
-- preferred genre
-- preferred mood
-- target energy
-- target tempo
-- target valence
+    - preferred genre
+    - preferred mood
+    - target energy
+    - target tempo
+    - target valence
 
 - How does your `Recommender` compute a score for each song
 
 Each song is scored based on how well it matches the user:
 
-- +3.0 points if genre matches
-- +2.0 points if mood matches
-- Energy similarity score based on closeness to target
-- Tempo similarity score based on closeness to target
-- Valence similarity score based on closeness to target
+    - +3.0 points if genre matches
+    - +2.0 points if mood matches
+    - Energy similarity score based on closeness to target
+    - Tempo similarity score based on closeness to target
+    - Valence similarity score based on closeness to target
 
 Songs that are closer to the user’s preferences receive higher scores.
 
@@ -80,6 +80,7 @@ flowchart TD
     E --> F[Store Song + Score]
     F --> G[Sort Songs by Score]
     G --> H[Top K Recommendations]
+
 ---
 
 ## Getting Started
@@ -125,6 +126,12 @@ Use this section to document the experiments you ran. For example:
 - What happened when you added tempo or valence to the score
 - How did your system behave for different types of users
 
+
+Weight Shift: Increased the importance of energy while reducing genre weight. This made high-energy songs rank higher even if the genre didn’t match perfectly.
+Feature Removal: Temporarily ignored the mood check. Recommendations became less specific to emotional preference, and top songs often repeated across profiles.
+Diverse Profiles: Tested three profiles—High-Energy Pop, Chill Lofi, Deep Intense Rock. Observed that the system correctly prioritized songs matching the main features, but some cross-genre recommendations still appeared.
+Dataset Sensitivity: Even with a small catalog, simple scoring produced reasonable results, but diversity was limited.
+
 ---
 
 ## Limitations and Risks
@@ -139,6 +146,11 @@ Examples:
 
 You will go deeper on this in your model card.
 
+Works on a very small catalog, so recommendations can feel repetitive.
+Does not account for lyrics, language, or more nuanced musical features.
+Might over-prioritize certain genres (like pop) if the dataset has more of those songs.
+Energy and mood scoring may not reflect all user tastes; users with conflicting preferences may not get ideal recommendations.
+
 ---
 
 ## Reflection
@@ -152,6 +164,9 @@ Write 1 to 2 paragraphs here about what you learned:
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
 
+Working on this project taught me how recommenders translate user preferences into predictions using simple scoring rules. By combining features like genre, mood, and energy, the system assigns scores to songs and ranks them, demonstrating that even straightforward algorithms can produce recommendations that “feel” intuitive. Testing with multiple user profiles helped me see how each feature contributes to the final ranking and how changes in feature weights can significantly alter outcomes.
+
+I also learned about potential bias and unfairness in recommender systems. For example, the model may over-prioritize genres that appear more frequently in the dataset or favor songs with certain energy levels, leaving other types of songs underrepresented. Recognizing these limitations highlighted the importance of careful dataset design and feature weighting, as well as the value of testing with diverse and even conflicting user preferences to ensure fair and meaningful recommendations.
 
 ---
 
@@ -260,3 +275,15 @@ A few sentences about what you learned:
 - How did building this change how you think about real music recommenders
 - Where do you think human judgment still matters, even if the model seems "smart"
 
+
+
+## Recommendation Screenshots
+
+### GENERAL OUTPUT 
+![General output](screenshots/output.png)
+
+### STEP 2 
+![STEP 2](screenshots/step2.png)
+
+### STEP 3
+![STEP 3](screenshots/step3.png)
