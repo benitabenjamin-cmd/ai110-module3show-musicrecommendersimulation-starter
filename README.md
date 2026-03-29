@@ -13,22 +13,73 @@ Your goal is to:
 
 Replace this paragraph with your own summary of what your version does.
 
+## MY SUMMARY ##
+
+This project builds a simple content-based music recommender system that suggests songs based on a user’s vibe preferences. Each song is represented using features like genre, mood, energy, tempo, and valence. The system compares these features to a user’s taste profile, assigns a score to each song, and recommends the highest-scoring songs. The goal is to simulate how real-world recommendation systems personalize content using data.
+
 ---
 
 ## How The System Works
 
 Explain your design in plain language.
 
+This system recommends songs by comparing each song’s features with a user’s taste profile and ranking the best matches.
+
+
 Some prompts to answer:
 
 - What features does each `Song` use in your system
   - For example: genre, mood, energy, tempo
+
+Each song includes:
+- genre
+- mood
+- energy
+- tempo_bpm
+- valence
+- danceability
+- acousticness
+
 - What information does your `UserProfile` store
+
+The user profile includes:
+- preferred genre
+- preferred mood
+- target energy
+- target tempo
+- target valence
+
 - How does your `Recommender` compute a score for each song
+
+Each song is scored based on how well it matches the user:
+
+- +3.0 points if genre matches
+- +2.0 points if mood matches
+- Energy similarity score based on closeness to target
+- Tempo similarity score based on closeness to target
+- Valence similarity score based on closeness to target
+
+Songs that are closer to the user’s preferences receive higher scores.
+
 - How do you choose which songs to recommend
+
+1. Load all songs from the dataset
+2. Loop through each song
+3. Compute a score using the scoring rules
+4. Sort songs by score (highest first)
+5. Recommend the top 3–5 songs
+
 
 You can include a simple diagram or bullet list if helpful.
 
+flowchart TD
+    A[User Profile Input] --> B[Load Songs CSV]
+    B --> C[Loop Through Each Song]
+    C --> D[Compare Song Features to User Preferences]
+    D --> E[Calculate Score]
+    E --> F[Store Song + Score]
+    F --> G[Sort Songs by Score]
+    G --> H[Top K Recommendations]
 ---
 
 ## Getting Started
