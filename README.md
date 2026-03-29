@@ -170,6 +170,18 @@ I also learned about potential bias and unfairness in recommender systems. For e
 
 ---
 
+## Recommendation Screenshots
+
+### GENERAL OUTPUT 
+![General output](screenshots/output.png)
+
+### STEP 2 
+![STEP 2](screenshots/step2.png)
+
+### STEP 3
+![STEP 3](screenshots/step3.png)
+
+
 ## 7. `model_card_template.md`
 
 Combines reflection and model card framing from the Module 3 guidance. :contentReference[oaicite:2]{index=2}  
@@ -276,14 +288,3 @@ A few sentences about what you learned:
 - Where do you think human judgment still matters, even if the model seems "smart"
 
 
-
-## Recommendation Screenshots
-
-### GENERAL OUTPUT 
-![General output](screenshots/output.png)
-
-### STEP 2 
-![STEP 2](screenshots/step2.png)
-
-### STEP 3
-![STEP 3](screenshots/step3.png)
